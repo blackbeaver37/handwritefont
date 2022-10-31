@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+  background: linear-gradient(55deg, #80d4ff 0%, #e9f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 128px;
+  gap: 128px;
+}
+
+.block {
+  background-color: rgb(242, 242, 242);
+  width: 60%;
+  height: 70%;
+  border-radius: 10px;
+  color: black;
+}
+
+.download {
+  background-color: rgb(149, 120, 237);
+  color: white;
+  font-size: 24px;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.dropzone_div {
+}

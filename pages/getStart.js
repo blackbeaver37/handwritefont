@@ -3,6 +3,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "components/Navbar";
 import Head from "next/head";
 import styles from "styles/GetStart.module.scss";
+import Link from "next/link";
 
 const GetStart = () => {
     return (
@@ -44,7 +45,14 @@ const GetStart = () => {
                             <span></span>
                         </div>
                     </div>
-                    <div className={styles.blockTail}></div>
+                    <div className={styles.blockTail}>
+                        <Link href="/standard-korean">
+                            <a className={styles.link_kor}>한글</a>
+                        </Link>
+                        <Link href="/getStart">
+                            <a className={styles.link_chi}>한자</a>
+                        </Link>
+                    </div>
                 </div>
                 <div className={styles.block}>
                     <div className={styles.blockHead2}>
@@ -76,7 +84,14 @@ const GetStart = () => {
                             </span>
                         </div>
                     </div>
-                    <div className={styles.blockTail}></div>
+                    <div className={styles.blockTail}>
+                        <Link href="/getStart">
+                            <a className={styles.link_kor}>한글</a>
+                        </Link>
+                        <Link href="/getStart">
+                            <a className={styles.link_chi}>한자</a>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
