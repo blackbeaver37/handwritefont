@@ -5,10 +5,11 @@ import Head from "next/head";
 import styles from "styles/Standard-Korean.module.scss";
 import { useCallback, useReducer, useRef, useState } from "react";
 import DropZone from "../components/DropZone";
+import classNames from "classnames";
 
 const StandardKorean = () => {
     const [page, setPage] = useState(0);
-    const lastPage = 2;
+    const lastPage = 3;
 
     const handlePageNext = () => {
         if (page < lastPage) {
@@ -42,6 +43,12 @@ const StandardKorean = () => {
         fileList: [],
     });
 
+    const onClickTest = () => {
+        const url = window.URL.createObjectURL(data.fileList[0]);
+        window.alert(url);
+        window.URL.revokeObjectURL(url);
+    };
+
     return (
         <div>
             <Head>
@@ -63,16 +70,66 @@ const StandardKorean = () => {
                         </a>
                     )}
                     {page == 2 && (
-                        <div className={styles.dropzone_div}>
+                        <div className={styles.dropzoneDiv}>
                             <DropZone data={data} dispatch={dispatch} />
                         </div>
                     )}
+                    {page == 3 && (
+                        <div>
+                            <span>완료</span>
+                            <button onClick={onClickTest}>TEST</button>
+                        </div>
+                    )}
+                </div>
+                <div className={styles.progressDiv}>
+                    <div
+                        className={classNames(styles.progressDiv_element, {
+                            [styles.progressDiv_element_active]: page == 0,
+                        })}
+                    >
+                        주의사항
+                    </div>
+                    <div
+                        className={classNames(styles.progressDiv_element, {
+                            [styles.progressDiv_element_active]: page == 1,
+                        })}
+                    >
+                        템플릿 작성
+                    </div>
+                    <div
+                        className={classNames(styles.progressDiv_element, {
+                            [styles.progressDiv_element_active]: page == 2,
+                        })}
+                    >
+                        손글씨 업로드
+                    </div>
+                    <div
+                        className={classNames(styles.progressDiv_element, {
+                            [styles.progressDiv_element_active]: page == 3,
+                        })}
+                    >
+                        완료
+                    </div>
                 </div>
                 <div>
-                    {page > 0 && <button onClick={handlePagePrev}>이전</button>}
-                    {page < lastPage && (
-                        <button onClick={handlePageNext}>다음</button>
-                    )}
+                    <button
+                        className={classNames(styles.pageBtn, {
+                            [styles.pageBtn_op0]: page == 0,
+                        })}
+                        onClick={handlePagePrev}
+                        disabled={page == 0}
+                    >
+                        이전
+                    </button>
+                    <button
+                        className={classNames(styles.pageBtn, {
+                            [styles.pageBtn_op0]: page == lastPage,
+                        })}
+                        onClick={handlePageNext}
+                        disabled={page == lastPage}
+                    >
+                        다음
+                    </button>
                 </div>
             </div>
         </div>

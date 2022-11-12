@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 128px;
-  gap: 128px;
+  padding-top: 80px;
 }
 
 .block {
@@ -24,5 +23,37 @@
   border-radius: 10px;
 }
 
-.dropzone_div {
+.dropzoneDiv {
 }
+
+.progressDiv {
+  width: 50%;
+  height: 90px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.progressDiv_element {
+  width: 20%;
+  font-size: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.672);
+}
+.progressDiv_element_active {
+  font-size: 36px;
+  color: white;
+}
+
+.pageBtn {
+  background-color: black;
+  width: 128px;
+  height: 48px;
+  font-size: 24px;
+  margin-top: 16px;
+}
+
+.pageBtn_op0 {
+  opacity: 0.5;
+}
+

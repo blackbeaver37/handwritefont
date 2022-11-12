@@ -1,12 +1,8 @@
-$primary-color: #64ff00;
-
-//background
-$bg-blue: #80D4FF;
+$bg-blue: #77cdf8;
+$bg-blue--1: #80D4FF;
 $bg-purple: #EE99FF;
 
 :export {
-  primaryColor: $primary-color;
-
   bgBlue: $bg-blue;
   bgPurple: $bg-purple;
 }

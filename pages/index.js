@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Head>
-                <title>Title</title>
+                <title>홈 | 손글씨폰트</title>
                 <meta name="Name" content="Content" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
