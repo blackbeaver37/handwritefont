@@ -1,31 +1,49 @@
+@import "styles/variables.module";
+
 .container {
     height: 100vh;
-    background: linear-gradient(55deg, #80d4ff 0%, #e9f 100%);
+    background: $bg-blue;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+.head {
+    font-family: 'Nanum Gothic';
+    font-weight: 600;
+    font-size: 36px;
+    letter-spacing: -2px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 36px;
 }
 
 .block {
-    width: 1000px;
+    width: 800px;
     height: 300px;
     background-color: white;
     border-radius: 16px;
     margin: 36px 0;
     display: flex;
+    outline: 1px solid rgba(255, 255, 255, 0.804);
+    transition: all ease-in-out 0.1s;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
-.blockHead1 {
+.blockHead {
     height: 100%;
-    width: 70%;
-    background-color: rgb(149, 120, 237);
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    width: 100%;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 40px;
+    padding: 40px 60px;
     .title {
         font-size: 36px;
         font-weight: 800;
@@ -44,58 +62,9 @@
         grid-template-rows: 1fr 1fr 1fr;
     }
 }
-.blockHead2 {
-    height: 100%;
-    width: 70%;
-    background-color: rgb(96, 54, 231);
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 40px;
-    .title {
-        font-size: 36px;
-        font-weight: 800;
-    }
-    .desc {
-        font-size: 18px;
-        font-weight: 400;
-        font-family: 'Nanum Gothic';
-    }
-    div {
-        height: 50%;
-        width: 100%;
-        align-items: center;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-    }
+.blockHead_color1 {
+    background-color: $bg-blue--4;
 }
-
-.blockTail {
-    height: 100%;
-    width: 30%;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.link_kor {
-    background-color: rgb(149, 120, 237);
-    color: white;
-    font-size: 24px;
-    padding: 10px 40px;
-    border-radius: 10px;
-}
-.link_chi {
-    background-color: rgb(96, 54, 231);
-    color: white;
-    font-size: 24px;
-    padding: 10px 40px;
-    border-radius: 10px;
+.blockHead_color2 {
+    background-color: $bg-blue--2;
 }

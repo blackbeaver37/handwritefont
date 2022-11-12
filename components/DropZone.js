@@ -113,12 +113,11 @@ const DropZone = ({ data, dispatch }) => {
                     onChange={(e) => handleFileSelect(e)}
                     accept=".pdf"
                 />
-                <label htmlFor="fileSelect">
-                    You can select multiple Files
-                </label>
+                <label htmlFor="fileSelect">파일 업로드</label>
 
                 <h3 className={styles.uploadMessage}>
-                    or drag &amp; drop your files here
+                    버튼을 눌러 선택하거나, 이 곳에 드래그 하여 작성이 완료된
+                    템플릿을 업로드 해주세요.
                 </h3>
             </div>
 

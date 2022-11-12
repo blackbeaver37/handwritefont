@@ -4,8 +4,12 @@ import Navbar from "components/Navbar";
 import Head from "next/head";
 import styles from "styles/GetStart.module.scss";
 import Link from "next/link";
+import classNames from "classnames";
+import { useRouter } from "next/router";
 
 const GetStart = () => {
+    const routor = useRouter();
+
     return (
         <div>
             <Head>
@@ -15,8 +19,17 @@ const GetStart = () => {
             </Head>
             <Navbar />
             <div className={styles.container}>
-                <div className={styles.block}>
-                    <div className={styles.blockHead1}>
+                <span className={styles.head}>원하는 폰트 선택하기</span>
+                <div
+                    className={styles.block}
+                    onClick={() => routor.push("/standard-korean")}
+                >
+                    <div
+                        className={classNames(
+                            styles.blockHead,
+                            styles.blockHead_color1
+                        )}
+                    >
                         <span className={styles.title}>Standard</span>
                         <span className={styles.desc}>
                             특별한 나만의 손글씨 폰트를 만들 수 있어요.
@@ -45,17 +58,14 @@ const GetStart = () => {
                             <span></span>
                         </div>
                     </div>
-                    <div className={styles.blockTail}>
-                        <Link href="/standard-korean">
-                            <a className={styles.link_kor}>한글</a>
-                        </Link>
-                        <Link href="/getStart">
-                            <a className={styles.link_chi}>한자</a>
-                        </Link>
-                    </div>
                 </div>
                 <div className={styles.block}>
-                    <div className={styles.blockHead2}>
+                    <div
+                        className={classNames(
+                            styles.blockHead,
+                            styles.blockHead_color2
+                        )}
+                    >
                         <span className={styles.title}>Premium</span>
                         <span className={styles.desc}>
                             나의 손글씨를 다른 폰트와 혼합하여 만들 수 있어요.
@@ -83,14 +93,6 @@ const GetStart = () => {
                                 파일 수정 가능
                             </span>
                         </div>
-                    </div>
-                    <div className={styles.blockTail}>
-                        <Link href="/getStart">
-                            <a className={styles.link_kor}>한글</a>
-                        </Link>
-                        <Link href="/getStart">
-                            <a className={styles.link_chi}>한자</a>
-                        </Link>
                     </div>
                 </div>
             </div>

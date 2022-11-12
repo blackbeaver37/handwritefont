@@ -4,10 +4,12 @@ import Navbar from "components/Navbar";
 import Head from "next/head";
 import styles from "styles/Standard-Korean.module.scss";
 import { useCallback, useReducer, useRef, useState } from "react";
-import DropZone from "../components/DropZone";
+import DropZone from "components/DropZone";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 const StandardKorean = () => {
+    const router = useRouter();
     const [page, setPage] = useState(0);
     const lastPage = 3;
 
@@ -59,24 +61,57 @@ const StandardKorean = () => {
             <Navbar />
             <div className={styles.container}>
                 <div className={styles.block}>
-                    {page == 0 && <span>주의사항</span>}
-                    {page == 1 && (
-                        <a
-                            className={styles.download}
-                            href="/손글씨작성템플릿.pdf"
-                            download
-                        >
-                            템플릿 다운로드
-                        </a>
-                    )}
-                    {page == 2 && (
-                        <div className={styles.dropzoneDiv}>
-                            <DropZone data={data} dispatch={dispatch} />
+                    {page === 0 && (
+                        <div className={styles.pageDiv}>
+                            <span className={styles.pageHeader}>주의 사항</span>
+                            <div className={styles.pageDesc}>
+                                <span>1. 주의 사항 1</span>
+                                <span>2. 주의 사항 2</span>
+                                <span>3. 주의 사항 3</span>
+                                <span>4. 주의 사항 4</span>
+                            </div>
                         </div>
                     )}
-                    {page == 3 && (
-                        <div>
-                            <span>완료</span>
+                    {page === 1 && (
+                        <div className={styles.pageDiv}>
+                            <span className={styles.pageHeader}>
+                                템플릿 작성
+                            </span>
+                            <div className={styles.pageDesc}>
+                                <span>
+                                    아래 템플릿을 다운로드하여 손글씨를
+                                    작성해주세요.
+                                </span>
+                            </div>
+                            <a
+                                className={styles.download}
+                                href="/손글씨작성템플릿.pdf"
+                                download
+                            >
+                                템플릿 다운로드
+                            </a>
+                        </div>
+                    )}
+                    {page === 2 && (
+                        <div className={styles.pageDiv}>
+                            <span className={styles.pageHeader}>
+                                손글씨 업로드
+                            </span>
+                            <div className={styles.pageDesc}>
+                                <span>
+                                    손글씨 작성이 완료된 템플릿을 업로드
+                                    해주세요.
+                                </span>
+                            </div>
+                            <div className={styles.dropzoneDiv}>
+                                <DropZone data={data} dispatch={dispatch} />
+                            </div>
+                        </div>
+                    )}
+                    {page === 3 && (
+                        <div className={styles.pageDiv}>
+                            <span className={styles.pageHeader}>완료</span>
+                            <div className={styles.pageDesc}></div>
                             <button onClick={onClickTest}>TEST</button>
                         </div>
                     )}
@@ -84,52 +119,79 @@ const StandardKorean = () => {
                 <div className={styles.progressDiv}>
                     <div
                         className={classNames(styles.progressDiv_element, {
-                            [styles.progressDiv_element_active]: page == 0,
+                            [styles.progressDiv_element_active]: page === 0,
                         })}
                     >
-                        주의사항
+                        주의 사항
                     </div>
+                    <div className={styles.dot}>&#8226; &#8226; &#8226;</div>
                     <div
                         className={classNames(styles.progressDiv_element, {
-                            [styles.progressDiv_element_active]: page == 1,
+                            [styles.progressDiv_element_active]: page === 1,
                         })}
                     >
                         템플릿 작성
                     </div>
+                    <div className={styles.dot}>&#8226; &#8226; &#8226;</div>
                     <div
                         className={classNames(styles.progressDiv_element, {
-                            [styles.progressDiv_element_active]: page == 2,
+                            [styles.progressDiv_element_active]: page === 2,
                         })}
                     >
                         손글씨 업로드
                     </div>
+                    <div className={styles.dot}>&#8226; &#8226; &#8226;</div>
                     <div
                         className={classNames(styles.progressDiv_element, {
-                            [styles.progressDiv_element_active]: page == 3,
+                            [styles.progressDiv_element_active]: page === 3,
                         })}
                     >
                         완료
                     </div>
                 </div>
                 <div>
-                    <button
-                        className={classNames(styles.pageBtn, {
-                            [styles.pageBtn_op0]: page == 0,
-                        })}
-                        onClick={handlePagePrev}
-                        disabled={page == 0}
-                    >
-                        이전
-                    </button>
-                    <button
-                        className={classNames(styles.pageBtn, {
-                            [styles.pageBtn_op0]: page == lastPage,
-                        })}
-                        onClick={handlePageNext}
-                        disabled={page == lastPage}
-                    >
-                        다음
-                    </button>
+                    {page === 0 ? (
+                        <button
+                            className={classNames(
+                                styles.pageBtn,
+                                styles.pageBtn_prev
+                            )}
+                            onClick={() => router.push("/getStart")}
+                        >
+                            다시 선택하기
+                        </button>
+                    ) : (
+                        <button
+                            className={classNames(
+                                styles.pageBtn,
+                                styles.pageBtn_prev
+                            )}
+                            onClick={handlePagePrev}
+                        >
+                            &#60; 이전 단계로
+                        </button>
+                    )}
+                    {page === lastPage ? (
+                        <button
+                            className={classNames(
+                                styles.pageBtn,
+                                styles.pageBtn_next
+                            )}
+                            // onClick={handlePageNext}
+                        >
+                            완료 하기
+                        </button>
+                    ) : (
+                        <button
+                            className={classNames(
+                                styles.pageBtn,
+                                styles.pageBtn_next
+                            )}
+                            onClick={handlePageNext}
+                        >
+                            다음 단계로 &#62;
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

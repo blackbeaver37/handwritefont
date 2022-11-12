@@ -1,6 +1,8 @@
+@import "styles/variables.module";
+
 .container {
   height: 100vh;
-  background: linear-gradient(55deg, #80d4ff 0%, #e9f 100%);
+  background: $bg-blue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +13,34 @@
   background-color: rgb(242, 242, 242);
   width: 60%;
   height: 70%;
-  border-radius: 10px;
+  border-radius: 24px;
   color: black;
 }
+
+.pageDiv {
+  height: 100%;
+  width: 100%;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .pageHeader {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 48px;
+  }
+  .pageDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 24px;
+    span {
+      margin-bottom: 12px;
+    }
+  }
+}
+
 
 .download {
   background-color: rgb(149, 120, 237);
@@ -36,24 +63,51 @@
 }
 .progressDiv_element {
   width: 20%;
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.672);
+  letter-spacing: -1px;
+  color: $bg-white;
+  transition: all ease-in-out 0.1s;
 }
 .progressDiv_element_active {
-  font-size: 36px;
-  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  color: $bg-blue--2;
+}
+.dot {
+  font-size: 18px;
+  color: $bg-blue--4;
+  opacity: 0.7;
 }
 
 .pageBtn {
-  background-color: black;
-  width: 128px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  width: 500px;
   height: 48px;
   font-size: 24px;
   margin-top: 16px;
+  transition: all ease-in-out 0.1s;
+  &:hover {
+    transform: scale(1.05);
+  }
 }
-
+.pageBtn_prev {
+  background: $bg-white;
+  color: $bg-blue--2;
+  margin-right: 24px;
+}
+.pageBtn_next {
+  background: $bg-blue--2;
+  color: $bg-white;
+  margin-left: 24px;
+}
 .pageBtn_op0 {
-  opacity: 0.5;
+  opacity: 0;
+  &:hover,
+  &:focus {
+    transform: scale(1);
+  }
 }
 
