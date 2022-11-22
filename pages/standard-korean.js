@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faA, faPen, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "components/Navbar";
 import Head from "next/head";
 import styles from "styles/Standard-Korean.module.scss";
@@ -9,6 +9,7 @@ import classNames from "classnames";
 import { useRouter } from "next/router";
 
 import ReactCrop from "react-image-crop";
+import FilePreview from "components/FilePreview";
 
 const StandardKorean = () => {
     const router = useRouter();
@@ -66,19 +67,37 @@ const StandardKorean = () => {
                     {page === 0 && (
                         <div className={styles.pageDiv}>
                             <span className={styles.pageHeader}>유의 사항</span>
-                            <div className={styles.pageDesc}>
-                                <span>
-                                    ㅇ 손글씨 작성 시 0.7mm 이상의 검정색 펜을
-                                    사용해 주세요.
-                                </span>
-                                <span>
-                                    ㅇ 글씨의 획이 붙거나 떨어진 곳이 있는지 꼭
-                                    확인해 주세요.
-                                </span>
-                                <span>
-                                    ㅇ 글씨가 글 상자 밖으로 나가지 않게
-                                    조심해주세요.
-                                </span>
+                            <div className={styles.page1DescDiv}>
+                                <div className={styles.pageDescDiv}>
+                                    <div>
+                                        <FontAwesomeIcon icon={faPen} />
+                                    </div>
+                                    <span>
+                                        &nbsp;손글씨 작성 시 0.7mm 이상의
+                                        <br />
+                                        검정색 펜을 사용해 주세요.
+                                    </span>
+                                </div>
+                                <div className={styles.pageDescDiv}>
+                                    <div>
+                                        <FontAwesomeIcon icon={faA} />
+                                    </div>
+                                    <span>
+                                        &nbsp;글씨의 획이 붙거나 떨어진 곳이
+                                        <br />
+                                        있는지 꼭 확인해 주세요.
+                                    </span>
+                                </div>
+                                <div className={styles.pageDescDiv}>
+                                    <div>
+                                        <FontAwesomeIcon icon={faSquareCheck} />
+                                    </div>
+                                    <span>
+                                        &nbsp;글씨가 글 상자 밖으로 나가지
+                                        <br />
+                                        않게 조심해주세요.
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     )}
@@ -123,12 +142,7 @@ const StandardKorean = () => {
                         <div className={styles.pageDiv}>
                             <span className={styles.pageHeader}>완료</span>
                             <div className={styles.pageDesc}></div>
-                            <button onClick={onClickTest}>TEST</button>
-                            <ReactCrop
-                                src="public/test.png"
-                                crop={crop}
-                                onChange={(newCrop) => setCrop(newCrop)}
-                            />
+                            <FilePreview fileData={data} />
                         </div>
                     )}
                 </div>
