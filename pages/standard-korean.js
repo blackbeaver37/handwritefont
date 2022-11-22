@@ -65,12 +65,20 @@ const StandardKorean = () => {
                 <div className={styles.block}>
                     {page === 0 && (
                         <div className={styles.pageDiv}>
-                            <span className={styles.pageHeader}>주의 사항</span>
+                            <span className={styles.pageHeader}>유의 사항</span>
                             <div className={styles.pageDesc}>
-                                <span>1. 주의 사항 1</span>
-                                <span>2. 주의 사항 2</span>
-                                <span>3. 주의 사항 3</span>
-                                <span>4. 주의 사항 4</span>
+                                <span>
+                                    ㅇ 손글씨 작성 시 0.7mm 이상의 검정색 펜을
+                                    사용해 주세요.
+                                </span>
+                                <span>
+                                    ㅇ 글씨의 획이 붙거나 떨어진 곳이 있는지 꼭
+                                    확인해 주세요.
+                                </span>
+                                <span>
+                                    ㅇ 글씨가 글 상자 밖으로 나가지 않게
+                                    조심해주세요.
+                                </span>
                             </div>
                         </div>
                     )}
@@ -130,7 +138,7 @@ const StandardKorean = () => {
                             [styles.progressDiv_element_active]: page === 0,
                         })}
                     >
-                        주의 사항
+                        유의 사항
                     </div>
                     <div className={styles.dot}>&#8226; &#8226; &#8226;</div>
                     <div
