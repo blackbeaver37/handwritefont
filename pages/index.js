@@ -18,7 +18,7 @@ const Home = () => {
                 <p className={styles.title}>나만의 손글씨 폰트 만들기</p>
                 <div className={styles.desc}>
                     <p>특별한 나만의 손글씨로</p>
-                    <p>세상에서 하나밖에 없는 폰트를 만들어요</p>
+                    <p>세상에서 하나밖에 없는 폰트를 만들어요.</p>
                 </div>
                 <Link href="/getStart">
                     <a className={styles.link}>시작하기</a>
