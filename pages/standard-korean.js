@@ -8,6 +8,8 @@ import DropZone from "components/DropZone";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 
+import ReactCrop from "react-image-crop";
+
 const StandardKorean = () => {
     const router = useRouter();
     const [page, setPage] = useState(0);
@@ -45,10 +47,10 @@ const StandardKorean = () => {
         fileList: [],
     });
 
+    const [crop, setCrop] = useState({ aspect: 16 / 9 });
+
     const onClickTest = () => {
-        const url = window.URL.createObjectURL(data.fileList[0]);
-        window.alert(url);
-        window.URL.revokeObjectURL(url);
+        const file = data.fileList[0];
     };
 
     return (
@@ -106,6 +108,7 @@ const StandardKorean = () => {
                             <div className={styles.dropzoneDiv}>
                                 <DropZone data={data} dispatch={dispatch} />
                             </div>
+                            {/* <img height={200} src="test.png" /> */}
                         </div>
                     )}
                     {page === 3 && (
@@ -113,6 +116,11 @@ const StandardKorean = () => {
                             <span className={styles.pageHeader}>완료</span>
                             <div className={styles.pageDesc}></div>
                             <button onClick={onClickTest}>TEST</button>
+                            <ReactCrop
+                                src="public/test.png"
+                                crop={crop}
+                                onChange={(newCrop) => setCrop(newCrop)}
+                            />
                         </div>
                     )}
                 </div>

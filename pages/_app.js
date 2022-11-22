@@ -1,5 +1,6 @@
 import "styles/globals.css";
 import "styles/reset.css";
+import "react-image-crop/src/ReactCrop.scss";
 
 //fortawesome
 import { config } from "@fortawesome/fontawesome-svg-core";

@@ -15,6 +15,10 @@ const FilePreview = ({ fileData }) => {
                                     className={styles.fileList}
                                 >
                                     {/* display the filename and type */}
+                                    <img
+                                        height={200}
+                                        src={URL.createObjectURL(f)}
+                                    />
                                     <div
                                         key={f.name}
                                         className={styles.fileName}

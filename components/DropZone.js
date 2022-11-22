@@ -111,7 +111,7 @@ const DropZone = ({ data, dispatch }) => {
                     type="file"
                     className={styles.files}
                     onChange={(e) => handleFileSelect(e)}
-                    accept=".pdf"
+                    accept="image/*, .pdf"
                 />
                 <label htmlFor="fileSelect">파일 업로드</label>
 
