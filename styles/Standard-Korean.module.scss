@@ -76,6 +76,20 @@
     }
   }
 }
+.page2DescDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 24px;
+  span {
+    margin-bottom: 12px;
+    font-family: 'Poor Story', cursive;
+  }
+  .pageDescDiv {
+    display: flex;
+  }
+}
 
 
 .download {
